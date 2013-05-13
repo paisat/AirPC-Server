@@ -187,8 +187,7 @@ public class ImageSender {
 				int packets = (int) Math.ceil(imageByteArray.length
 						/ (float) Max_Datagram_size);
 
-				 //System.out.println("total size "+imageByteArray.length);
-				 //System.out.println("packets "+packets);
+				
 
 				if (packets > max_packets) {
 					System.out.println("Image is too large to be transmitted!");
@@ -204,11 +203,7 @@ public class ImageSender {
 					int size = (flags != session_end) ? Max_Datagram_size
 							: imageByteArray.length - i * Max_Datagram_size;
 
-					/*
-					 * System.out.println("Size "+size);
-					 * System.out.println("Flags "+flags);
-					 * System.out.println("max size "+(DATAGRAM_MAX_SIZE>>8) );
-					 */
+					
 
 					byte[] data = new byte[header_size + size];
 					data[0] = (byte) flags;
@@ -237,6 +232,7 @@ public class ImageSender {
 						congestionControl.receive(dp);
 						String s = new String(dp.getData(), 0, dp.getLength(),
 								"UTF-8");
+						//System.out.println(s);
 
 						if (s.equals("send")) {
 

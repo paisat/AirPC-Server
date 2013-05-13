@@ -36,8 +36,8 @@ public class HandShake {
 				// TODO Auto-generated method stub
 				try {
 					socket = new ServerSocket(port);
-					//if(com==null)
-						//startMouseKeyboard();
+					if(com==null)
+						startMouseKeyboard();
 					while (true) {
 
 						serverSocket = socket.accept();
@@ -63,7 +63,7 @@ public class HandShake {
 								out.writeUTF("password accepted");
 								
 								
-								startMouseKeyboard();
+								
 								startRemoteDesktop();
 								isAirPcInSession=true;
 							}

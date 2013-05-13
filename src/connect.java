@@ -66,7 +66,7 @@ public class connect {
 
 		try {
 			ipadd = getFirstNonLoopbackAddress();
-
+			ipadd=InetAddress.getByName("10.0.0.3");
 			setJmdns();
 
 			if (ipadd == null)
@@ -305,6 +305,8 @@ public class connect {
 		Enumeration en = NetworkInterface.getNetworkInterfaces();
 		while (en.hasMoreElements()) {
 			NetworkInterface i = (NetworkInterface) en.nextElement();
+			
+			System.out.println(i);
 			for (Enumeration en2 = i.getInetAddresses(); en2.hasMoreElements();) {
 				InetAddress addr = (InetAddress) en2.nextElement();
 				if (!addr.isLoopbackAddress()) {
